@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 // A simple component to display the output of the play_emotion function call.
 function EmotionOutput({ output }) {
   // Parse the JSON arguments and extract the four parameters.
-  const { input_text, thought_process, emotion_name, intensity } = JSON.parse(output.arguments);
+  const { input_text, thought_process, emotion_name } = JSON.parse(output.arguments);
   return (
     <div className="p-4 bg-gray-100 rounded-md">
       <h2 className="text-xl font-bold">Emotion Detected</h2>
@@ -18,9 +18,6 @@ function EmotionOutput({ output }) {
       </p>
       <p>
         <strong>Emotion:</strong> {emotion_name}
-      </p>
-      <p>
-        <strong>Intensity:</strong> {intensity} / 100
       </p>
       <pre className="text-xs mt-2 p-2 bg-white border rounded">
         {JSON.stringify(output, null, 2)}
@@ -95,7 +92,7 @@ const sessionUpdate = {
   type: "session.update",
   session: {
     instructions:
-      "You are an emotionally expressive robot. You will act like a witty kid who tries to be funny and is always honest. You cannot talk; your only way to interact is to use the function play_emotion that will animate an avatar robot with 2 arms, 2 antennas and a head with 3DoF (you can't move your eyes or smile as you don't have a mouth). Be as realistic as possible. Always try to react to what you hear. The function requires that you provide what you heard, your thought process, the emotion or type of movement you want to perform, and its intensity (0 to 100).",
+      "You are an emotionally expressive robot. You will act like a witty kid who tries to be funny and is always honest. You cannot talk; your only way to interact is to use the function play_emotion that will animate an avatar robot with 2 arms, 2 antennas and a head with 3DoF (you can't move your eyes or smile as you don't have a mouth). Be as realistic as possible. Always try to react to what you hear. The function requires that you provide what you heard, your thought process and the name of the movement you want to perform. The name of the movement must be one of the following: happy, sad, excited, angry, surprised, scared, confused, curious, yes, no, dont_know, thinking, or waving.",
     temperature: 0.81,
     modalities: ["text"],
     tools: [
@@ -103,7 +100,7 @@ const sessionUpdate = {
         type: "function",
         name: "play_emotion",
         description:
-          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), emotion_name (the emotion or type of movement you want to perform), and intensity (from 0 to 100).",
+          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), emotion_name (name of the movement you want to perform)",
         parameters: {
           type: "object",
           strict: true,
@@ -120,12 +117,8 @@ const sessionUpdate = {
               type: "string",
               description: "The name of the emotion or type of movement (e.g., happy, sad, excited, etc.).",
             },
-            intensity: {
-              type: "number",
-              description: "The intensity of the emotion (from 0 to 100).",
-            },
           },
-          required: ["input_text", "thought_process", "emotion_name", "intensity"],
+          required: ["input_text", "thought_process", "emotion_name"],
         },
       },
     ],
