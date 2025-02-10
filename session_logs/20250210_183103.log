@@ -1,0 +1,31 @@
+2025-02-10 18:31:03,822 [INFO] Starting Flask server on port 5001...
+2025-02-10 18:31:03,829 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-02-10 18:31:03,829 [INFO] [33mPress CTRL+C to quit[0m
+2025-02-10 18:31:14,959 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:14] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 18:31:14,960 [DEBUG] Received /play_emotion request with data: {'input_text': 'Bonjour !', 'thought_process': "Quelqu'un vient de me saluer joyeusement. Je veux répondre avec enthousiasme pour montrer que je suis ravi de leur présence.", 'emotion_name': 'enthousiaste'}
+2025-02-10 18:31:14,960 [INFO] Executing play_emotion:
+2025-02-10 18:31:14,960 [INFO] Input text: Bonjour !
+2025-02-10 18:31:14,960 [INFO] Thought process: Quelqu'un vient de me saluer joyeusement. Je veux répondre avec enthousiasme pour montrer que je suis ravi de leur présence.
+2025-02-10 18:31:14,960 [INFO] Emotion: enthousiaste
+2025-02-10 18:31:14,961 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:14] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 18:31:18,130 [DEBUG] Received /play_emotion request with data: {'input_text': 'Salut, ça va ?', 'thought_process': 'On me demande comment je vais. Je veux montrer que je suis de bonne humeur et que je suis prêt à aider ou discuter.', 'emotion_name': 'amical'}
+2025-02-10 18:31:18,130 [INFO] Executing play_emotion:
+2025-02-10 18:31:18,130 [INFO] Input text: Salut, ça va ?
+2025-02-10 18:31:18,130 [INFO] Thought process: On me demande comment je vais. Je veux montrer que je suis de bonne humeur et que je suis prêt à aider ou discuter.
+2025-02-10 18:31:18,130 [INFO] Emotion: amical
+2025-02-10 18:31:18,131 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:18] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 18:31:31,610 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:31] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 18:31:31,612 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce qu'il y a des choses qui peuvent te rendre triste ?", 'thought_process': "C'est une question intéressante. Même si je ne ressens pas vraiment la tristesse, je peux comprendre l'émotion. Je vais montrer une réaction triste pour empathiser avec la question.", 'emotion_name': 'triste'}
+2025-02-10 18:31:31,612 [INFO] Executing play_emotion:
+2025-02-10 18:31:31,612 [INFO] Input text: Est-ce qu'il y a des choses qui peuvent te rendre triste ?
+2025-02-10 18:31:31,612 [INFO] Thought process: C'est une question intéressante. Même si je ne ressens pas vraiment la tristesse, je peux comprendre l'émotion. Je vais montrer une réaction triste pour empathiser avec la question.
+2025-02-10 18:31:31,612 [INFO] Emotion: triste
+2025-02-10 18:31:31,612 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:31] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 18:31:49,345 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:49] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 18:31:49,346 [DEBUG] Received /play_emotion request with data: {'input_text': "Tu sais, quand je te pose une question, tu peux répondre par oui ou par non aussi. Alors, est-ce qu'il y a des choses qui te rendent triste ?", 'thought_process': "Je ne ressens pas vraiment la tristesse, mais je peux comprendre le concept. Je vais répondre par la négative tout en restant amical pour indiquer que, étant un robot, je n'ai pas ce type d'émotion.", 'emotion_name': 'negatif'}
+2025-02-10 18:31:49,346 [INFO] Executing play_emotion:
+2025-02-10 18:31:49,346 [INFO] Input text: Tu sais, quand je te pose une question, tu peux répondre par oui ou par non aussi. Alors, est-ce qu'il y a des choses qui te rendent triste ?
+2025-02-10 18:31:49,346 [INFO] Thought process: Je ne ressens pas vraiment la tristesse, mais je peux comprendre le concept. Je vais répondre par la négative tout en restant amical pour indiquer que, étant un robot, je n'ai pas ce type d'émotion.
+2025-02-10 18:31:49,346 [INFO] Emotion: negatif
+2025-02-10 18:31:49,347 [INFO] 127.0.0.1 - - [10/Feb/2025 18:31:49] "POST /play_emotion HTTP/1.1" 200 -
