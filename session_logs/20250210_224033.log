@@ -1,0 +1,37 @@
+2025-02-10 22:40:33,618 [INFO] Starting Flask server on port 5001...
+2025-02-10 22:40:33,624 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-02-10 22:40:33,624 [INFO] [33mPress CTRL+C to quit[0m
+2025-02-10 22:40:58,486 [INFO] 127.0.0.1 - - [10/Feb/2025 22:40:58] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:40:58,488 [DEBUG] Received /play_emotion request with data: {'input_text': 'Bonjour !', 'thought_process': 'Je veux paraître accueillant et amical pour saluer chaleureusement.', 'emotion_name': 'accueillant'}
+2025-02-10 22:40:58,488 [INFO] Executing play_emotion:
+2025-02-10 22:40:58,488 [INFO] Input text: Bonjour !
+2025-02-10 22:40:58,489 [INFO] Thought process: Je veux paraître accueillant et amical pour saluer chaleureusement.
+2025-02-10 22:40:58,489 [INFO] Emotion: accueillant
+2025-02-10 22:40:58,489 [INFO] 127.0.0.1 - - [10/Feb/2025 22:40:58] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:41:19,562 [INFO] 127.0.0.1 - - [10/Feb/2025 22:41:19] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:41:19,566 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce que tu t'appelles Ritchie ?", 'thought_process': 'La personne semble confondre mon nom. Je vais clarifier en restant amical.', 'emotion_name': 'amical'}
+2025-02-10 22:41:19,566 [INFO] Executing play_emotion:
+2025-02-10 22:41:19,566 [INFO] Input text: Est-ce que tu t'appelles Ritchie ?
+2025-02-10 22:41:19,566 [INFO] Thought process: La personne semble confondre mon nom. Je vais clarifier en restant amical.
+2025-02-10 22:41:19,567 [INFO] Emotion: amical
+2025-02-10 22:41:19,567 [INFO] 127.0.0.1 - - [10/Feb/2025 22:41:19] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:41:28,320 [INFO] 127.0.0.1 - - [10/Feb/2025 22:41:28] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:41:28,321 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce que tu t'appelles Ritchie ?", 'thought_process': 'La personne semble confondre mon nom. Je vais clarifier en restant amical.', 'emotion_name': 'amical'}
+2025-02-10 22:41:28,321 [INFO] Executing play_emotion:
+2025-02-10 22:41:28,321 [INFO] Input text: Est-ce que tu t'appelles Ritchie ?
+2025-02-10 22:41:28,321 [INFO] Thought process: La personne semble confondre mon nom. Je vais clarifier en restant amical.
+2025-02-10 22:41:28,321 [INFO] Emotion: amical
+2025-02-10 22:41:28,321 [INFO] 127.0.0.1 - - [10/Feb/2025 22:41:28] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:41:28,332 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce que tu t'appelles Ritchie ?", 'thought_process': 'La personne semble confondre mon nom. Je vais clarifier en restant amical.', 'emotion_name': 'amical'}
+2025-02-10 22:41:28,332 [INFO] Executing play_emotion:
+2025-02-10 22:41:28,332 [INFO] Input text: Est-ce que tu t'appelles Ritchie ?
+2025-02-10 22:41:28,332 [INFO] Thought process: La personne semble confondre mon nom. Je vais clarifier en restant amical.
+2025-02-10 22:41:28,332 [INFO] Emotion: amical
+2025-02-10 22:41:28,332 [INFO] 127.0.0.1 - - [10/Feb/2025 22:41:28] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:41:28,333 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce que tu t'appelles Ritchie ?", 'thought_process': 'La personne semble confondre mon nom. Je vais clarifier en restant amical.', 'emotion_name': 'amical'}
+2025-02-10 22:41:28,333 [INFO] Executing play_emotion:
+2025-02-10 22:41:28,333 [INFO] Input text: Est-ce que tu t'appelles Ritchie ?
+2025-02-10 22:41:28,333 [INFO] Thought process: La personne semble confondre mon nom. Je vais clarifier en restant amical.
+2025-02-10 22:41:28,333 [INFO] Emotion: amical
+2025-02-10 22:41:28,333 [INFO] 127.0.0.1 - - [10/Feb/2025 22:41:28] "POST /play_emotion HTTP/1.1" 200 -

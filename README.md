@@ -1,3 +1,19 @@
+# README for us
+
+The important code is in: `client/components/ToolPanel.jsx`
+
+To run:
+```
+~/openai-realtime-console
+npm run dev
+```
+
+And the Python bridge+log recorder:
+```
+~/openai-realtime-console
+python3 python_test.py
+```
+
 # OpenAI Realtime Console
 
 This is an example application showing how to use the [OpenAI Realtime API](https://platform.openai.com/docs/guides/realtime) with [WebRTC](https://platform.openai.com/docs/guides/realtime-webrtc).

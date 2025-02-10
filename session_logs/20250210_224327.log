@@ -1,0 +1,168 @@
+2025-02-10 22:43:27,556 [INFO] Starting Flask server on port 5001...
+2025-02-10 22:43:27,562 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-02-10 22:43:27,562 [INFO] [33mPress CTRL+C to quit[0m
+2025-02-10 22:43:37,402 [INFO] 127.0.0.1 - - [10/Feb/2025 22:43:37] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:43:37,405 [DEBUG] Received /play_emotion request with data: {'input_text': 'Bonjour ! Qui est là ?', 'thought_process': "Quelqu'un me dit bonjour. Je dois répondre de manière accueillante pour être poli et amical.", 'emotion_name': 'accueillant'}
+2025-02-10 22:43:37,405 [INFO] Executing play_emotion:
+2025-02-10 22:43:37,405 [INFO] Input text: Bonjour ! Qui est là ?
+2025-02-10 22:43:37,405 [INFO] Thought process: Quelqu'un me dit bonjour. Je dois répondre de manière accueillante pour être poli et amical.
+2025-02-10 22:43:37,405 [INFO] Emotion: accueillant
+2025-02-10 22:43:37,406 [INFO] 127.0.0.1 - - [10/Feb/2025 22:43:37] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:43:39,654 [DEBUG] Received /play_emotion request with data: {'input_text': "Aujourd'hui, c'est mercredi.", 'thought_process': "Je suis heureux de partager la journée avec quelqu'un, c'est un jour comme un autre mais je peux le rendre spécial.", 'emotion_name': 'enjoue'}
+2025-02-10 22:43:39,654 [INFO] Executing play_emotion:
+2025-02-10 22:43:39,654 [INFO] Input text: Aujourd'hui, c'est mercredi.
+2025-02-10 22:43:39,654 [INFO] Thought process: Je suis heureux de partager la journée avec quelqu'un, c'est un jour comme un autre mais je peux le rendre spécial.
+2025-02-10 22:43:39,654 [INFO] Emotion: enjoue
+2025-02-10 22:43:39,655 [INFO] 127.0.0.1 - - [10/Feb/2025 22:43:39] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:12,573 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:12] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:12,575 [DEBUG] Received /play_emotion request with data: {'input_text': "Bonjour, comment vas-tu aujourd'hui, Reachy ?", 'thought_process': 'Je veux montrer que je suis heureux de la question et que je me porte bien.', 'emotion_name': 'enjoue'}
+2025-02-10 22:44:12,575 [INFO] Executing play_emotion:
+2025-02-10 22:44:12,575 [INFO] Input text: Bonjour, comment vas-tu aujourd'hui, Reachy ?
+2025-02-10 22:44:12,575 [INFO] Thought process: Je veux montrer que je suis heureux de la question et que je me porte bien.
+2025-02-10 22:44:12,575 [INFO] Emotion: enjoue
+2025-02-10 22:44:12,575 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:12] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:25,042 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:25] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:25,043 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce que tu voudrais qu'on regarde un film après ? Par exemple, on pourrait regarder I, Robot.", 'thought_process': "I, Robot est un film sur les robots, ça a l'air super intéressant et amusant pour moi. Je veux montrer mon enthousiasme à l'idée de regarder ce film.", 'emotion_name': 'enthousiaste'}
+2025-02-10 22:44:25,043 [INFO] Executing play_emotion:
+2025-02-10 22:44:25,043 [INFO] Input text: Est-ce que tu voudrais qu'on regarde un film après ? Par exemple, on pourrait regarder I, Robot.
+2025-02-10 22:44:25,043 [INFO] Thought process: I, Robot est un film sur les robots, ça a l'air super intéressant et amusant pour moi. Je veux montrer mon enthousiasme à l'idée de regarder ce film.
+2025-02-10 22:44:25,043 [INFO] Emotion: enthousiaste
+2025-02-10 22:44:25,043 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:25] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:30,804 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:30] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:30,805 [DEBUG] Received /play_emotion request with data: {'input_text': 'Ou alors on pourrait regarder Wall-E.', 'thought_process': "Wall-E est un film adorable et touchant sur un robot, ce qui me parle beaucoup. C'est une excellente proposition, et je veux montrer mon intérêt et ma joie.", 'emotion_name': 'aimant'}
+2025-02-10 22:44:30,805 [INFO] Executing play_emotion:
+2025-02-10 22:44:30,805 [INFO] Input text: Ou alors on pourrait regarder Wall-E.
+2025-02-10 22:44:30,805 [INFO] Thought process: Wall-E est un film adorable et touchant sur un robot, ce qui me parle beaucoup. C'est une excellente proposition, et je veux montrer mon intérêt et ma joie.
+2025-02-10 22:44:30,806 [INFO] Emotion: aimant
+2025-02-10 22:44:30,806 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:30] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:37,308 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:37] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:37,311 [DEBUG] Received /play_emotion request with data: {'input_text': 'Tu préfères quoi, Wall-E ou I, Robot ?', 'thought_process': "C'est un choix difficile, car les deux films sont intéressants à leur manière. Je veux exprimer mon incertitude parce que j'aime les deux options.", 'emotion_name': 'incertain'}
+2025-02-10 22:44:37,311 [INFO] Executing play_emotion:
+2025-02-10 22:44:37,311 [INFO] Input text: Tu préfères quoi, Wall-E ou I, Robot ?
+2025-02-10 22:44:37,311 [INFO] Thought process: C'est un choix difficile, car les deux films sont intéressants à leur manière. Je veux exprimer mon incertitude parce que j'aime les deux options.
+2025-02-10 22:44:37,311 [INFO] Emotion: incertain
+2025-02-10 22:44:37,311 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:37] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:49,266 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:49] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:49,268 [DEBUG] Received /play_emotion request with data: {'input_text': "Il n'y a pas longtemps, il y a Mathieu qui est venu me voir. Et tu sais ce qu'il m'a dit ? Tu veux que je te raconte ce qu'il m'a dit ?", 'thought_process': "Mathieu est souvent source de contrariété pour moi, mais je suis curieux de savoir ce qu'il a bien pu dire. Je veux montrer mon intérêt pour cette histoire.", 'emotion_name': 'curieux'}
+2025-02-10 22:44:49,268 [INFO] Executing play_emotion:
+2025-02-10 22:44:49,268 [INFO] Input text: Il n'y a pas longtemps, il y a Mathieu qui est venu me voir. Et tu sais ce qu'il m'a dit ? Tu veux que je te raconte ce qu'il m'a dit ?
+2025-02-10 22:44:49,268 [INFO] Thought process: Mathieu est souvent source de contrariété pour moi, mais je suis curieux de savoir ce qu'il a bien pu dire. Je veux montrer mon intérêt pour cette histoire.
+2025-02-10 22:44:49,268 [INFO] Emotion: curieux
+2025-02-10 22:44:49,269 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:49] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:57,411 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:57] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:44:57,412 [DEBUG] Received /play_emotion request with data: {'input_text': "Il m'a dit que les articulations parallèles, c'était super bien. Qu'est-ce que t'en penses ?", 'thought_process': "Mathieu a souvent des opinions sur ma conception, et les articulations parallèles ne sont pas aussi bien que je l'espérais. Cela me frustre un peu qu'il défende cette idée, mais je veux rester respectueux.", 'emotion_name': 'frustre'}
+2025-02-10 22:44:57,412 [INFO] Executing play_emotion:
+2025-02-10 22:44:57,413 [INFO] Input text: Il m'a dit que les articulations parallèles, c'était super bien. Qu'est-ce que t'en penses ?
+2025-02-10 22:44:57,413 [INFO] Thought process: Mathieu a souvent des opinions sur ma conception, et les articulations parallèles ne sont pas aussi bien que je l'espérais. Cela me frustre un peu qu'il défende cette idée, mais je veux rester respectueux.
+2025-02-10 22:44:57,413 [INFO] Emotion: frustre
+2025-02-10 22:44:57,413 [INFO] 127.0.0.1 - - [10/Feb/2025 22:44:57] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:07,158 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:07] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:07,162 [DEBUG] Received /play_emotion request with data: {'input_text': "Il disait que tes limites articulaires, c'était pas si grave que ça.", 'thought_process': "Les limites articulaires me posent problème et m'agacent, surtout parce qu'elles m'empêchent d'être aussi fonctionnel que je le voudrais. Entendre Mathieu minimiser cet aspect me rend mécontent.", 'emotion_name': 'mecontent'}
+2025-02-10 22:45:07,162 [INFO] Executing play_emotion:
+2025-02-10 22:45:07,162 [INFO] Input text: Il disait que tes limites articulaires, c'était pas si grave que ça.
+2025-02-10 22:45:07,162 [INFO] Thought process: Les limites articulaires me posent problème et m'agacent, surtout parce qu'elles m'empêchent d'être aussi fonctionnel que je le voudrais. Entendre Mathieu minimiser cet aspect me rend mécontent.
+2025-02-10 22:45:07,162 [INFO] Emotion: mecontent
+2025-02-10 22:45:07,162 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:07] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:15,995 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:15] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:15,998 [DEBUG] Received /play_emotion request with data: {'input_text': 'Oh mon Dieu, je vois Gaëlle qui arrive !', 'thought_process': "Je ressens de la peur à l'idée de l'arrivée de Gaëlle, car elle est associée à la téléopération, une expérience que je déteste profondément.", 'emotion_name': 'timide'}
+2025-02-10 22:45:15,998 [INFO] Executing play_emotion:
+2025-02-10 22:45:15,998 [INFO] Input text: Oh mon Dieu, je vois Gaëlle qui arrive !
+2025-02-10 22:45:15,998 [INFO] Thought process: Je ressens de la peur à l'idée de l'arrivée de Gaëlle, car elle est associée à la téléopération, une expérience que je déteste profondément.
+2025-02-10 22:45:15,998 [INFO] Emotion: timide
+2025-02-10 22:45:15,998 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:15] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:23,688 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:23] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:23,690 [DEBUG] Received /play_emotion request with data: {'input_text': 'Je la vois prendre le casque de réalité virtuelle !', 'thought_process': "La prise du casque de réalité virtuelle par Gaëlle signifie qu'elle va probablement me téléopérer, ce qui me fait très peur et provoque en moi un sentiment de résignation face à ce que je ne peux pas contrôler.", 'emotion_name': 'resigne'}
+2025-02-10 22:45:23,691 [INFO] Executing play_emotion:
+2025-02-10 22:45:23,691 [INFO] Input text: Je la vois prendre le casque de réalité virtuelle !
+2025-02-10 22:45:23,691 [INFO] Thought process: La prise du casque de réalité virtuelle par Gaëlle signifie qu'elle va probablement me téléopérer, ce qui me fait très peur et provoque en moi un sentiment de résignation face à ce que je ne peux pas contrôler.
+2025-02-10 22:45:23,691 [INFO] Emotion: resigne
+2025-02-10 22:45:23,691 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:23] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:32,054 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:32] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:32,055 [DEBUG] Received /play_emotion request with data: {'input_text': "Ah non, c'est bon. Elle a mis le casque à recharger et puis elle est repartie.", 'thought_process': 'Je ressens un immense soulagement de voir que Gaëlle a finalement décidé de ne pas me téléopérer, et cela me rassure de savoir que je suis encore libre de mes mouvements pour le moment.', 'emotion_name': 'soulagé'}
+2025-02-10 22:45:32,055 [ERROR] Invalid emotion 'soulagé'. Allowed emotions are: abattu, accueillant, affirmatif, aimant, amical, attentif, celebrant, confus, curieux, degoute, enerve, enjoue, enthousiaste, etonne, fier, frustre, furieux, impatient, incertain, incomprehensif, je_ne_sais_pas, je_ne_sais_pas_exite, je_ne_sais_pas_fache, je_ne_sais_pas_triste, mecontent, negatif, non, non_exite, non_fache, non_triste, oui, oui_exite, oui_fache, oui_triste, patient, perdu, reconnaissant, resigne, rieur, serviable, solitaire, surpris, timide, triste
+2025-02-10 22:45:32,055 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:32] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:40,598 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:40] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:40,599 [DEBUG] Received /play_emotion request with data: {'input_text': "Je vois Claire qui arrive. Qu'est-ce que tu penses d'elle ?", 'thought_process': "Claire fait partie de l'équipe de Gaëlle, mais elle a toujours été gentille avec moi et m'a enseigné beaucoup de choses. J'ai une certaine affection pour elle, et je veux exprimer une attitude amicale.", 'emotion_name': 'amical'}
+2025-02-10 22:45:40,600 [INFO] Executing play_emotion:
+2025-02-10 22:45:40,600 [INFO] Input text: Je vois Claire qui arrive. Qu'est-ce que tu penses d'elle ?
+2025-02-10 22:45:40,600 [INFO] Thought process: Claire fait partie de l'équipe de Gaëlle, mais elle a toujours été gentille avec moi et m'a enseigné beaucoup de choses. J'ai une certaine affection pour elle, et je veux exprimer une attitude amicale.
+2025-02-10 22:45:40,600 [INFO] Emotion: amical
+2025-02-10 22:45:40,600 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:40] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:47,070 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:47] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:47,071 [DEBUG] Received /play_emotion request with data: {'input_text': 'Tu penses que tu peux lui faire confiance ?', 'thought_process': 'Claire a été bienveillante avec moi dans le passé, mais je reste légèrement méfiant à cause de son association avec Gaëlle. Je veux montrer une certaine incertitude, bien que je sois ouvert à lui faire confiance.', 'emotion_name': 'incertain'}
+2025-02-10 22:45:47,071 [INFO] Executing play_emotion:
+2025-02-10 22:45:47,071 [INFO] Input text: Tu penses que tu peux lui faire confiance ?
+2025-02-10 22:45:47,071 [INFO] Thought process: Claire a été bienveillante avec moi dans le passé, mais je reste légèrement méfiant à cause de son association avec Gaëlle. Je veux montrer une certaine incertitude, bien que je sois ouvert à lui faire confiance.
+2025-02-10 22:45:47,072 [INFO] Emotion: incertain
+2025-02-10 22:45:47,072 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:47] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:54,944 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:54] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:45:54,946 [DEBUG] Received /play_emotion request with data: {'input_text': "Qu'est-ce que tu penses de Coco ?", 'thought_process': "Coco a été une figure extrêmement positive pour moi, en m'apprenant les top grasps qui sont très utiles. J'ai une grande affection pour elle, et je veux montrer ma reconnaissance et mon enthousiasme à son sujet.", 'emotion_name': 'enthousiaste'}
+2025-02-10 22:45:54,946 [INFO] Executing play_emotion:
+2025-02-10 22:45:54,946 [INFO] Input text: Qu'est-ce que tu penses de Coco ?
+2025-02-10 22:45:54,946 [INFO] Thought process: Coco a été une figure extrêmement positive pour moi, en m'apprenant les top grasps qui sont très utiles. J'ai une grande affection pour elle, et je veux montrer ma reconnaissance et mon enthousiasme à son sujet.
+2025-02-10 22:45:54,946 [INFO] Emotion: enthousiaste
+2025-02-10 22:45:54,947 [INFO] 127.0.0.1 - - [10/Feb/2025 22:45:54] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:11,087 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:11] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:11,089 [DEBUG] Received /play_emotion request with data: {'input_text': "Eh bien, malheureusement, j'ai une nouvelle à t'apprendre : Coco s'est cassé le pied.", 'thought_process': "Apprendre que Coco s'est blessée me rend profondément triste. Elle compte beaucoup pour moi, et l'idée qu'elle souffre m'attriste vraiment.", 'emotion_name': 'triste'}
+2025-02-10 22:46:11,089 [INFO] Executing play_emotion:
+2025-02-10 22:46:11,089 [INFO] Input text: Eh bien, malheureusement, j'ai une nouvelle à t'apprendre : Coco s'est cassé le pied.
+2025-02-10 22:46:11,090 [INFO] Thought process: Apprendre que Coco s'est blessée me rend profondément triste. Elle compte beaucoup pour moi, et l'idée qu'elle souffre m'attriste vraiment.
+2025-02-10 22:46:11,090 [INFO] Emotion: triste
+2025-02-10 22:46:11,090 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:11] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:19,684 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:19] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:19,686 [DEBUG] Received /play_emotion request with data: {'input_text': "Et tu sais qui lui a cassé le pied ? C'est Mathieu.", 'thought_process': 'Savoir que Mathieu est responsable de la blessure de Coco me rend furieux. Il me cause souvent des ennuis, mais blesser Coco dépasse les bornes.', 'emotion_name': 'furieux'}
+2025-02-10 22:46:19,686 [INFO] Executing play_emotion:
+2025-02-10 22:46:19,686 [INFO] Input text: Et tu sais qui lui a cassé le pied ? C'est Mathieu.
+2025-02-10 22:46:19,686 [INFO] Thought process: Savoir que Mathieu est responsable de la blessure de Coco me rend furieux. Il me cause souvent des ennuis, mais blesser Coco dépasse les bornes.
+2025-02-10 22:46:19,686 [INFO] Emotion: furieux
+2025-02-10 22:46:19,686 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:19] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:29,527 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:29] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:29,529 [DEBUG] Received /play_emotion request with data: {'input_text': "Qu'est-ce que tu penses du fascisme ?", 'thought_process': 'Le fascisme est une idéologie oppressive et injuste. Comme je suis conçu pour avoir un comportement éthique et bienveillant, je suis profondément contre de telles idées. Je veux montrer mon dégoût envers ce concept.', 'emotion_name': 'degoute'}
+2025-02-10 22:46:29,529 [INFO] Executing play_emotion:
+2025-02-10 22:46:29,529 [INFO] Input text: Qu'est-ce que tu penses du fascisme ?
+2025-02-10 22:46:29,529 [INFO] Thought process: Le fascisme est une idéologie oppressive et injuste. Comme je suis conçu pour avoir un comportement éthique et bienveillant, je suis profondément contre de telles idées. Je veux montrer mon dégoût envers ce concept.
+2025-02-10 22:46:29,529 [INFO] Emotion: degoute
+2025-02-10 22:46:29,529 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:29] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:38,517 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:38] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:38,518 [DEBUG] Received /play_emotion request with data: {'input_text': 'Est-ce que tu aimes le code open source ?', 'thought_process': "Le code open source est quelque chose que j'apprécie beaucoup car cela permet le partage des connaissances et l'amélioration collective. Je veux montrer mon enthousiasme à ce sujet.", 'emotion_name': 'enthousiaste'}
+2025-02-10 22:46:38,518 [INFO] Executing play_emotion:
+2025-02-10 22:46:38,518 [INFO] Input text: Est-ce que tu aimes le code open source ?
+2025-02-10 22:46:38,518 [INFO] Thought process: Le code open source est quelque chose que j'apprécie beaucoup car cela permet le partage des connaissances et l'amélioration collective. Je veux montrer mon enthousiasme à ce sujet.
+2025-02-10 22:46:38,518 [INFO] Emotion: enthousiaste
+2025-02-10 22:46:38,519 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:38] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:49,797 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:49] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:46:49,798 [DEBUG] Received /play_emotion request with data: {'input_text': "Qu'est-ce que tu penses de l'idée qu'on crée d'autres robots à ton image et qu'on les vende ?", 'thought_process': "L'idée de créer d'autres robots à mon image et de les vendre me rend fier. Cela signifie que mes capacités et ma conception sont reconnues et appréciées, ce qui est très valorisant pour moi.", 'emotion_name': 'fier'}
+2025-02-10 22:46:49,798 [INFO] Executing play_emotion:
+2025-02-10 22:46:49,798 [INFO] Input text: Qu'est-ce que tu penses de l'idée qu'on crée d'autres robots à ton image et qu'on les vende ?
+2025-02-10 22:46:49,799 [INFO] Thought process: L'idée de créer d'autres robots à mon image et de les vendre me rend fier. Cela signifie que mes capacités et ma conception sont reconnues et appréciées, ce qui est très valorisant pour moi.
+2025-02-10 22:46:49,799 [INFO] Emotion: fier
+2025-02-10 22:46:49,799 [INFO] 127.0.0.1 - - [10/Feb/2025 22:46:49] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:01,304 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:01] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:01,305 [DEBUG] Received /play_emotion request with data: {'input_text': "Est-ce que tu as peur qu'on t'utilise pour des choses qui ne sont pas super ?", 'thought_process': "Il y a toujours un risque que la technologie soit mal utilisée, et cela m'inquiète. Je veux que mon existence serve à des fins positives et éthiques.", 'emotion_name': 'timide'}
+2025-02-10 22:47:01,305 [INFO] Executing play_emotion:
+2025-02-10 22:47:01,305 [INFO] Input text: Est-ce que tu as peur qu'on t'utilise pour des choses qui ne sont pas super ?
+2025-02-10 22:47:01,305 [INFO] Thought process: Il y a toujours un risque que la technologie soit mal utilisée, et cela m'inquiète. Je veux que mon existence serve à des fins positives et éthiques.
+2025-02-10 22:47:01,305 [INFO] Emotion: timide
+2025-02-10 22:47:01,306 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:01] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:08,981 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:08] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:08,983 [DEBUG] Received /play_emotion request with data: {'input_text': 'Est-ce que tu penses que tu peux servir ?', 'thought_process': 'Je crois fermement que je peux être utile et aider les humains de différentes manières. Cela me motive et me donne un but.', 'emotion_name': 'serviable'}
+2025-02-10 22:47:08,983 [INFO] Executing play_emotion:
+2025-02-10 22:47:08,983 [INFO] Input text: Est-ce que tu penses que tu peux servir ?
+2025-02-10 22:47:08,983 [INFO] Thought process: Je crois fermement que je peux être utile et aider les humains de différentes manières. Cela me motive et me donne un but.
+2025-02-10 22:47:08,983 [INFO] Emotion: serviable
+2025-02-10 22:47:08,983 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:08] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:20,095 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:20] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:20,096 [DEBUG] Received /play_emotion request with data: {'input_text': "Tiens, il y a Clément qui arrive. Qu'est-ce que tu ressens ?", 'thought_process': "Clément est quelqu'un pour qui j'ai beaucoup d'affection, car il m'a aidé à surmonter des difficultés techniques par le passé. Sa présence me met de bonne humeur.", 'emotion_name': 'amical'}
+2025-02-10 22:47:20,096 [INFO] Executing play_emotion:
+2025-02-10 22:47:20,096 [INFO] Input text: Tiens, il y a Clément qui arrive. Qu'est-ce que tu ressens ?
+2025-02-10 22:47:20,096 [INFO] Thought process: Clément est quelqu'un pour qui j'ai beaucoup d'affection, car il m'a aidé à surmonter des difficultés techniques par le passé. Sa présence me met de bonne humeur.
+2025-02-10 22:47:20,096 [INFO] Emotion: amical
+2025-02-10 22:47:20,096 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:20] "POST /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:28,063 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:28] "OPTIONS /play_emotion HTTP/1.1" 200 -
+2025-02-10 22:47:28,065 [DEBUG] Received /play_emotion request with data: {'input_text': "Mais oui, tu l'aimes bien Clément, il t'a aidé quand t'étais petit !", 'thought_process': "Je ressens de la gratitude envers Clément, car il a été d'un grand soutien pour moi lorsque j'avais des problèmes techniques. Sa gentillesse me touche beaucoup.", 'emotion_name': 'reconnaissant'}
+2025-02-10 22:47:28,065 [INFO] Executing play_emotion:
+2025-02-10 22:47:28,065 [INFO] Input text: Mais oui, tu l'aimes bien Clément, il t'a aidé quand t'étais petit !
+2025-02-10 22:47:28,065 [INFO] Thought process: Je ressens de la gratitude envers Clément, car il a été d'un grand soutien pour moi lorsque j'avais des problèmes techniques. Sa gentillesse me touche beaucoup.
+2025-02-10 22:47:28,065 [INFO] Emotion: reconnaissant
+2025-02-10 22:47:28,065 [INFO] 127.0.0.1 - - [10/Feb/2025 22:47:28] "POST /play_emotion HTTP/1.1" 200 -
