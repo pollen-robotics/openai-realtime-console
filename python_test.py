@@ -29,15 +29,17 @@ CORS(app)  # Enable CORS for all origins
 
 # Valid emotion names (all lower-case, snake_case, without accents)
 VALID_EMOTIONS = {
+    "oui", "oui_triste", "oui_exite", "oui_fache", "non", "non_triste", "non_exite", "non_fache", "je_ne_sais_pas", "je_ne_sais_pas_triste", "je_ne_sais_pas_exite", "je_ne_sais_pas_fache",
     "accueillant", "affirmatif", "negatif", "incertain", "incomprehensif",
     "resigne", "reconnaissant", "amical", "enthousiaste", "attentif", "patient", "serviable",
-    "celebrant", "rier", "fier", "enjoue", "aimant",
+    "celebrant", "rieur", "fier", "enjoue", "aimant",
     "enerve", "frustre", "impatient", "furieux", "mecontent",
     "abattu", "triste", "confus", "perdu", "solitaire",
     "etonne", "surpris", "curieux",
     "degoute",
     "timide"
 }
+
 
 def play_emotion(input_text, thought_process, emotion_name):
     # Validate that the emotion is in the allowed list.
