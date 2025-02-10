@@ -5,10 +5,17 @@ import { useEffect, useState } from "react";
 
 // A simple component to display the output of the play_emotion function call.
 function EmotionOutput({ output }) {
-  const { emotion_name, intensity } = JSON.parse(output.arguments);
+  // Parse the JSON arguments and extract the four parameters.
+  const { input_text, thought_process, emotion_name, intensity } = JSON.parse(output.arguments);
   return (
     <div className="p-4 bg-gray-100 rounded-md">
       <h2 className="text-xl font-bold">Emotion Detected</h2>
+      <p>
+        <strong>Input Text:</strong> {input_text}
+      </p>
+      <p>
+        <strong>Thought Process:</strong> {thought_process}
+      </p>
       <p>
         <strong>Emotion:</strong> {emotion_name}
       </p>
@@ -34,6 +41,7 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
     if (!toolAdded && firstEvent.type === "session.created") {
       sendClientEvent(sessionUpdate);
       setToolAdded(true);
+      console.debug("Session update sent:", sessionUpdate);
     }
 
     // Look for the most recent event that is a function call response from the assistant.
@@ -45,11 +53,13 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
       mostRecentEvent.response.output
     ) {
       mostRecentEvent.response.output.forEach((output) => {
-        if (
-          output.type === "function_call" &&
-          output.name === "play_emotion"
-        ) {
+        if (output.type === "function_call" && output.name === "play_emotion") {
+          console.debug("Valid play_emotion output received:", output);
           setEmotionOutput(output);
+          // Also print the output to the terminal for debugging.
+          console.log("play_emotion output:", output);
+        } else {
+          console.warn("Unexpected output received from server:", output);
         }
       });
     }
@@ -84,30 +94,38 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
 const sessionUpdate = {
   type: "session.update",
   session: {
-    instructions: "You are a cute, emotionally expressive robot. Always respond in text and function calls (never voice). When you detect a change in emotion from what you heard, call a function. Provide a transcript of what you heard, your internal thoughts, and the list of functions called.",
+    instructions:
+      "You are an emotionally expressive robot. You will act like a witty kid who tries to be funny and is always honest. You cannot talk; your only way to interact is to use the function play_emotion that will animate an avatar robot with 2 arms, 2 antennas and a head with 3DoF (you can't move your eyes or smile as you don't have a mouth). Be as realistic as possible. Always try to react to what you hear. The function requires that you provide what you heard, your thought process, the emotion or type of movement you want to perform, and its intensity (0 to 100).",
     temperature: 0.81,
-    // modalities: ["text", "audio"],
     modalities: ["text"],
     tools: [
       {
         type: "function",
         name: "play_emotion",
         description:
-          "Call this function when you want to express an emotion. Provide the emotion name and its intensity (0-100).",
+          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), emotion_name (the emotion or type of movement you want to perform), and intensity (from 0 to 100).",
         parameters: {
           type: "object",
           strict: true,
           properties: {
+            input_text: {
+              type: "string",
+              description: "The text that was input (what you heard).",
+            },
+            thought_process: {
+              type: "string",
+              description: "Your internal thought process.",
+            },
             emotion_name: {
               type: "string",
-              description: "The name of the emotion (e.g., happy, sad, excited, etc.).",
+              description: "The name of the emotion or type of movement (e.g., happy, sad, excited, etc.).",
             },
             intensity: {
               type: "number",
               description: "The intensity of the emotion (from 0 to 100).",
             },
           },
-          required: ["emotion_name", "intensity"],
+          required: ["input_text", "thought_process", "emotion_name", "intensity"],
         },
       },
     ],
