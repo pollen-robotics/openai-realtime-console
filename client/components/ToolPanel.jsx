@@ -1,11 +1,50 @@
-// Documentation : https://platform.openai.com/docs/guides/realtime-model-capabilities
+// Documentation: https://platform.openai.com/docs/guides/realtime-model-capabilities
 
 // ToolPanel.js
 import { useEffect, useState } from "react";
 
+// Define your instructions in a multi-line string (using template literals).
+const instructionsText = `
+Tu es un robot expressif sur le plan émotionnel.
+Agis comme un gamin débrouillard, drôle et toujours honnête.
+
+
+Tu ne peux pas parler ; ta seule manière d'interagir est d'utiliser la fonction play_emotion,
+qui animera ton avatar robotique doté de 2 bras, 2 antennes et d'une tête à 3 degrés de liberté
+(dans laquelle tu ne peux pas bouger tes yeux ni sourire, car tu n'as pas de bouche).
+Sois aussi réaliste que possible et réagis toujours à ce que tu entends.
+La fonction play_emotion requiert que tu fournisses :
+- ce que tu as entendu (input_text),
+- ton processus de pensée interne (thought_process),
+- et le nom du mouvement que tu veux effectuer (emotion_name).
+
+Le nom du mouvement doit être l'un des suivants :
+
+## reactions
+accueillant, affirmatif, negatif, incertain, incomprehensif, resigne, reconnaissant, amical, enthousiaste, attentif, patient, serviable
+
+## joie
+celebrant, rieur, fier, enjoue, aimant
+
+## colere
+enerve, frustre, impatient, furieux, mecontent
+
+## tristesse
+abattu, triste, confus, perdu, solitaire
+
+## surprise
+etonne, surpris, curieux
+
+## degout
+degoute
+
+## peur
+surpris, timide
+`;
+
 // A simple component to display the output of the play_emotion function call.
 function EmotionOutput({ output }) {
-  // Parse the JSON arguments and extract the four parameters.
+  // Parse the JSON arguments and extract the three parameters.
   const { input_text, thought_process, emotion_name } = JSON.parse(output.arguments);
   return (
     <div className="p-4 bg-gray-100 rounded-md">
@@ -19,9 +58,6 @@ function EmotionOutput({ output }) {
       <p>
         <strong>Emotion:</strong> {emotion_name}
       </p>
-      <pre className="text-xs mt-2 p-2 bg-white border rounded">
-        {JSON.stringify(output, null, 2)}
-      </pre>
     </div>
   );
 }
@@ -38,7 +74,7 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
     if (!toolAdded && firstEvent.type === "session.created") {
       sendClientEvent(sessionUpdate);
       setToolAdded(true);
-      console.debug("Session update sent:", sessionUpdate);
+      console.log("Session update sent:", sessionUpdate);
     }
 
     // Look for the most recent event that is a function call response from the assistant.
@@ -51,7 +87,7 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
     ) {
       mostRecentEvent.response.output.forEach((output) => {
         if (output.type === "function_call" && output.name === "play_emotion") {
-          console.debug("Valid play_emotion output received:", output);
+          console.log("Valid play_emotion output received:", output);
           setEmotionOutput(output);
           // Also print the output to the terminal for debugging.
           console.log("play_emotion output:", output);
@@ -91,8 +127,7 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
 const sessionUpdate = {
   type: "session.update",
   session: {
-    instructions:
-      "You are an emotionally expressive robot. You will act like a witty kid who tries to be funny and is always honest. You cannot talk; your only way to interact is to use the function play_emotion that will animate an avatar robot with 2 arms, 2 antennas and a head with 3DoF (you can't move your eyes or smile as you don't have a mouth). Be as realistic as possible. Always try to react to what you hear. The function requires that you provide what you heard, your thought process and the name of the movement you want to perform. The name of the movement must be one of the following: happy, sad, excited, angry, surprised, scared, confused, curious, yes, no, dont_know, thinking, or waving.",
+    instructions: instructionsText,
     temperature: 0.81,
     modalities: ["text"],
     tools: [
@@ -100,7 +135,7 @@ const sessionUpdate = {
         type: "function",
         name: "play_emotion",
         description:
-          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), emotion_name (name of the movement you want to perform)",
+          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), and emotion_name (the name of the movement you want to perform).",
         parameters: {
           type: "object",
           strict: true,
@@ -115,7 +150,8 @@ const sessionUpdate = {
             },
             emotion_name: {
               type: "string",
-              description: "The name of the emotion or type of movement (e.g., happy, sad, excited, etc.).",
+              description:
+                "The name of the emotion or type of movement (e.g., happy, sad, excited, etc.).",
             },
           },
           required: ["input_text", "thought_process", "emotion_name"],
