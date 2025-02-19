@@ -60,24 +60,8 @@ La fonction play_emotion requiert que tu fournisses :
 
 Le nom du mouvement doit être l'un des suivants, il existe plusieurs variantes pour chaque mouvement, tu veillera à les varier :
 
-attentif1
-attentif2
-accueillant
-non_triste1
-oui_triste2
-frustration
-oui_triste1
-oui_excite2
-accueillant2
-oui_excite1
-non_triste2
-non_excite2
-oui_excite3
-amical1
-accueillant3
-non_excite1
-incertain2
-reconnaissant2
+["dodo1", "ecoute2", "fatigue1", "ecoute1", "macarena1", "curieux1", "solitaire1", "ennui2", "fatigue2", "furieux2", "ennui1", "apaisant1", "timide1", "anxiete1", "perdu1", "triste1", "abattu1", "furieux1", "attentif1", "enthousiaste2", "enthousiaste3", "attentif2", "confus1", "penseur1", "oui_triste1", "fier1", "frustre1", "incertain1", "enthousiaste1", "serenite1", "aimant1", "serenite2", "impatient1", "serviable2", "degoute1", "accueillant1", "enjoue1", "mecontent1", "peur2", "mecontent2", "interrogatif2", "non_triste1", "incomprehensif1", "reconnaissant1", "rieur1", "soulagement1", "comprehension1", "enerve2", "impatient2", "non", "serviable1", "patient1", "oui1", "enerve1", "frustre2", "mepris1", "amical1", "non_excite1", "etonne1", "fier2", "emerveille1", "oui_excite1", "resigne1", "interrogatif1", "oups1", "peur1", "surpris1", "rieur2", "comprehension2", "celebrant1"]
+
 `;
 
 // --- Component to display the output of the play_emotion function call ---
