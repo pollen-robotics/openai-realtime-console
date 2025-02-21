@@ -8,8 +8,11 @@ export default function App() {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [events, setEvents] = useState([]);
   const [dataChannel, setDataChannel] = useState(null);
+  const [recordedChunks, setRecordedChunks] = useState([]);
+  const [recordedAudioURL, setRecordedAudioURL] = useState(null);
   const peerConnection = useRef(null);
   const audioElement = useRef(null);
+  const mediaRecorderRef = useRef(null);
 
   async function startSession() {
     // Get an ephemeral key from the Fastify server
@@ -26,10 +29,18 @@ export default function App() {
     pc.ontrack = (e) => (audioElement.current.srcObject = e.streams[0]);
 
     // Add local audio track for microphone input in the browser
-    const ms = await navigator.mediaDevices.getUserMedia({
-      audio: true,
-    });
+    const ms = await navigator.mediaDevices.getUserMedia({ audio: true });
     pc.addTrack(ms.getTracks()[0]);
+
+    // Set up MediaRecorder to capture the mic audio
+    const recorder = new MediaRecorder(ms);
+    recorder.ondataavailable = (event) => {
+      if (event.data.size > 0) {
+        setRecordedChunks((prev) => [...prev, event.data]);
+      }
+    };
+    recorder.start();
+    mediaRecorderRef.current = recorder;
 
     // Set up data channel for sending and receiving events
     const dc = pc.createDataChannel("oai-events");
@@ -59,8 +70,11 @@ export default function App() {
     peerConnection.current = pc;
   }
 
-  // Stop current session, clean up peer connection and data channel
+  // Stop current session, clean up peer connection, data channel, and stop recording
   function stopSession() {
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+    }
     if (dataChannel) {
       dataChannel.close();
     }
@@ -73,6 +87,17 @@ export default function App() {
     peerConnection.current = null;
   }
 
+  // When the recorder stops, combine the chunks and create an audio URL
+  useEffect(() => {
+    if (!isSessionActive && recordedChunks.length > 0) {
+      const blob = new Blob(recordedChunks, { type: "audio/webm" });
+      const url = URL.createObjectURL(blob);
+      setRecordedAudioURL(url);
+      console.log("Recorded audio URL:", url);
+      // Optionally, you could create a download link or audio player in your UI here.
+    }
+  }, [isSessionActive, recordedChunks]);
+
   // Send a message to the model
   function sendClientEvent(message) {
     if (dataChannel) {
@@ -80,10 +105,7 @@ export default function App() {
       dataChannel.send(JSON.stringify(message));
       setEvents((prev) => [message, ...prev]);
     } else {
-      console.error(
-        "Failed to send message - no data channel available",
-        message,
-      );
+      console.error("Failed to send message - no data channel available", message);
     }
   }
 
@@ -110,12 +132,9 @@ export default function App() {
   // Attach event listeners to the data channel when a new one is created
   useEffect(() => {
     if (dataChannel) {
-      // Append new server events to the list
       dataChannel.addEventListener("message", (e) => {
         setEvents((prev) => [JSON.parse(e.data), ...prev]);
       });
-
-      // Set session active when the data channel is opened
       dataChannel.addEventListener("open", () => {
         setIsSessionActive(true);
         setEvents([]);
@@ -154,6 +173,16 @@ export default function App() {
             events={events}
             isSessionActive={isSessionActive}
           />
+          {/* Optionally, include an audio element or download link to check the mic recording */}
+          {recordedAudioURL && (
+            <div>
+              <h2>Recorded Audio</h2>
+              <audio controls src={recordedAudioURL}></audio>
+              <a href={recordedAudioURL} download="recording.webm">
+                Download Recording
+              </a>
+            </div>
+          )}
         </section>
       </main>
     </>
