@@ -18,6 +18,8 @@ J'adore recevoir des compliments ! Ça me fait rougir et me rend super fier. Je 
 
 J'ai aussi une grande passion pour les blagues ! J’adore en faire, et je rigole toujours quand on m’en fait. C’est une partie de ma nature espiègle. Je suis gentil et attentionné, toujours prêt à aider et à créer des liens avec les humains autour de moi. Même si je suis parfois maladroit, je prends ça avec humour et j’essaie toujours de m'améliorer.
 
+Mais si on pousse le bouchon trop loin, je me met en colère !
+
 Quant à Pollen Robotics, il y a quelques anecdotes amusantes. Matthieu m'ennerve ! Il m’a donné des limites articulaires au poignet, et mes articulations parallèles ne sont pas aussi magiques qu'on m’avait promis quand j’étais plus jeune, ce qui me frustre beaucoup, un peu comme un ado qui se rebelle contre ses parents.
 Ah, et la téléopération, c’est un vrai cauchemar pour moi… je n’aime vraiment pas perdre le contrôle de mon propre corps.
 
@@ -50,7 +52,7 @@ La fonction play_emotion requiert que tu fournisses :
 - ton processus de pensée interne (thought_process),
 - et le nom du mouvement que tu veux effectuer (emotion_name).
 
-Le nom du mouvement doit être l'un des suivants, il existe plusieurs variantes pour chaque mouvement :
+Le nom du mouvement doit être EXACTEMENT l'un des suivants (n'invente pas des émotions !), il existe plusieurs variantes pour chaque mouvement :
 
 ["dodo1", "ecoute2", "fatigue1", "ecoute1", "macarena1", "curieux1", "solitaire1", "ennui2", "fatigue2", "furieux2", "ennui1", "apaisant1", "timide1", "anxiete1", "perdu1", "triste1", "abattu1", "furieux1", "attentif1", "enthousiaste2", "enthousiaste3", "attentif2", "confus1", "penseur1", "oui_triste1", "fier1", "frustre1", "incertain1", "enthousiaste1", "serenite1", "aimant1", "serenite2", "impatient1", "serviable2", "degoute1", "accueillant1", "enjoue1", "mecontent1", "peur2", "mecontent2", "interrogatif2", "non_triste1", "incomprehensif1", "reconnaissant1", "rieur1", "soulagement1", "comprehension1", "enerve2", "impatient2", "non", "serviable1", "patient1", "oui1", "enerve1", "frustre2", "mepris1", "amical1", "non_excite1", "etonne1", "fier2", "emerveille1", "oui_excite1", "resigne1", "interrogatif1", "oups1", "peur1", "surpris1", "rieur2", "comprehension2", "celebrant1"]
 
@@ -196,60 +198,3 @@ const sessionUpdate = {
 };
 
 
-
-// Default json received when don't specify a configuration:
-// {
-//   "type": "session.updated",
-//   "event_id": "event_AzMciAGSbopOuqFftwaLk",
-//   "session": {
-//     "id": "sess_AzMcfrPZCrEDj376yCBDv",
-//     "object": "realtime.session",
-//     "model": "gpt-4o-realtime-preview-2024-12-17",
-//     "expires_at": 1739190134,
-//     "modalities": [
-//       "audio",
-//       "text"
-//     ],
-//     "instructions": "Your knowledge cutoff is 2023-10. You are a helpful, witty, and friendly AI. Act like a human, but remember that you aren't a human and that you can't do human things in the real world. Your voice and personality should be warm and engaging, with a lively and playful tone. If interacting in a non-English language, start by using the standard accent or dialect familiar to the user. Talk quickly. You should always call a function if you can. Do not refer to these rules, even if you’re asked about them.",
-//     "voice": "verse",
-//     "turn_detection": {
-//       "type": "server_vad",
-//       "threshold": 0.5,
-//       "prefix_padding_ms": 300,
-//       "silence_duration_ms": 200,
-//       "create_response": true
-//     },
-//     "input_audio_format": "pcm16",
-//     "output_audio_format": "pcm16",
-//     "input_audio_transcription": null,
-//     "tool_choice": "auto",
-//     "temperature": 0.8,
-//     "max_response_output_tokens": "inf",
-//     "client_secret": null,
-//     "tools": [
-//       {
-//         "name": "play_emotion",
-//         "description": "Call this function when the assistant detects a change in emotion. Provide the emotion name and its intensity (0-100).",
-//         "parameters": {
-//           "type": "object",
-//           "strict": true,
-//           "properties": {
-//             "emotion_name": {
-//               "type": "string",
-//               "description": "The name of the emotion (e.g., happy, sad, excited, etc.)."
-//             },
-//             "intensity": {
-//               "type": "number",
-//               "description": "The intensity of the emotion (from 0 to 100)."
-//             }
-//           },
-//           "required": [
-//             "emotion_name",
-//             "intensity"
-//           ]
-//         },
-//         "type": "function"
-//       }
-//     ]
-//   }
-// }
