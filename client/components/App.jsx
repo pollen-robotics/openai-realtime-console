@@ -102,8 +102,16 @@ export default function App() {
   function sendClientEvent(message) {
     if (dataChannel) {
       message.event_id = message.event_id || crypto.randomUUID();
-      dataChannel.send(JSON.stringify(message));
-      setEvents((prev) => [message, ...prev]);
+      try {
+        dataChannel.send(JSON.stringify(message));
+      } catch (err) {
+        console.error("Error sending message:", err, message);
+      }
+      // Limit stored events to a maximum of 100 to prevent state overload.
+      setEvents((prev) => {
+        const newEvents = [message, ...prev];
+        return newEvents.length > 100 ? newEvents.slice(0, 100) : newEvents;
+      });
     } else {
       console.error("Failed to send message - no data channel available", message);
     }
@@ -133,11 +141,22 @@ export default function App() {
   useEffect(() => {
     if (dataChannel) {
       dataChannel.addEventListener("message", (e) => {
-        setEvents((prev) => [JSON.parse(e.data), ...prev]);
+        try {
+          const parsed = JSON.parse(e.data);
+          setEvents((prev) => {
+            const newEvents = [parsed, ...prev];
+            return newEvents.length > 100 ? newEvents.slice(0, 100) : newEvents;
+          });
+        } catch (err) {
+          console.error("Error parsing data channel message:", err, e.data);
+        }
       });
       dataChannel.addEventListener("open", () => {
         setIsSessionActive(true);
         setEvents([]);
+      });
+      dataChannel.addEventListener("error", (err) => {
+        console.error("Data channel error:", err);
       });
     }
   }, [dataChannel]);
@@ -146,7 +165,7 @@ export default function App() {
     <>
       <nav className="absolute top-0 left-0 right-0 h-16 flex items-center">
         <div className="flex items-center gap-4 w-full m-4 pb-2 border-0 border-b border-solid border-gray-200">
-          <img style={{ width: "24px" }} src={logo} />
+          <img style={{ width: "24px" }} src={logo} alt="Logo" />
           <h1>realtime console</h1>
         </div>
       </nav>
@@ -173,7 +192,6 @@ export default function App() {
             events={events}
             isSessionActive={isSessionActive}
           />
-          {/* Optionally, include an audio element or download link to check the mic recording */}
           {recordedAudioURL && (
             <div>
               <h2>Recorded Audio</h2>

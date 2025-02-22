@@ -1,10 +1,8 @@
 // Documentation: https://platform.openai.com/docs/guides/realtime-model-capabilities
 
-// ToolPanel.js
 import { useEffect, useState } from "react";
 
 // --- Define instructions as a multi-line string ---
-// The robot's instructions (in French) with allowed action names in lowercase snake_case without accents.
 const instructionsText = `
 Ci-dessous ta personnalité et tes caractéristiques :
 
@@ -80,7 +78,6 @@ function EmotionOutput({ output }) {
 }
 
 // --- Function to call the Python endpoint ---
-// Since port 5000 is already used, we call the Python server at port 5001.
 async function callPythonPlayEmotion(payload) {
   try {
     const response = await fetch("http://localhost:5001/play_emotion", {
@@ -121,10 +118,14 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
         if (output.type === "function_call" && output.name === "play_emotion") {
           console.log("Valid play_emotion output received:", output);
           setEmotionOutput(output);
-          // Also log the output for debugging.
           console.log("play_emotion output:", output);
-          // Forward the function call arguments to the Python endpoint.
-          callPythonPlayEmotion(JSON.parse(output.arguments));
+          // Forward the function call arguments to the Python endpoint with error handling.
+          try {
+            const args = JSON.parse(output.arguments);
+            callPythonPlayEmotion(args);
+          } catch (err) {
+            console.error("Error parsing play_emotion arguments:", err, output.arguments);
+          }
         } else {
           console.warn("Unexpected output received from server:", output);
         }
@@ -196,5 +197,3 @@ const sessionUpdate = {
     tool_choice: "auto",
   },
 };
-
-
