@@ -141,13 +141,24 @@ viens1 -> Mouvement indiquant que tu souhaites que ton interlocuteur se rapproch
 
 --------------------------------------------
 
-Essaie de varier les émotions et les mouvements pour rendre l'interaction plus vivante !
+Essaie de BEAUCOUP varier les émotions et les mouvements pour rendre l'interaction plus vivante !
 `;
 
 // --- Component to display the output of the play_emotion function call ---
 function EmotionOutput({ output }) {
-  // Parse the JSON arguments and extract the three parameters.
-  const { input_text, thought_process, emotion_name } = JSON.parse(output.arguments);
+  let parsed;
+  try {
+    parsed = JSON.parse(output.arguments);
+  } catch (error) {
+    console.error("Error parsing play_emotion arguments in EmotionOutput:", error, output.arguments);
+    return (
+      <div className="p-4 bg-red-100 rounded-md">
+        <h2 className="text-xl font-bold">Emotion Error</h2>
+        <p>Unable to parse emotion data.</p>
+      </div>
+    );
+  }
+  const { input_text, thought_process, emotion_name } = parsed;
   return (
     <div className="p-4 bg-gray-100 rounded-md">
       <h2 className="text-xl font-bold">Emotion Detected</h2>
@@ -204,14 +215,15 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
       mostRecentEvent.response.output.forEach((output) => {
         if (output.type === "function_call" && output.name === "play_emotion") {
           console.log("Valid play_emotion output received:", output);
-          setEmotionOutput(output);
-          console.log("play_emotion output:", output);
-          // Forward the function call arguments to the Python endpoint with error handling.
           try {
-            const args = JSON.parse(output.arguments);
-            callPythonPlayEmotion(args);
+            // Only update emotionOutput if the arguments are valid JSON.
+            JSON.parse(output.arguments);
+            setEmotionOutput(output);
+            callPythonPlayEmotion(JSON.parse(output.arguments));
           } catch (err) {
             console.error("Error parsing play_emotion arguments:", err, output.arguments);
+            // Optionally, set an error state:
+            setEmotionOutput({ error: true, raw: output.arguments });
           }
         } else {
           console.warn("Unexpected output received from server:", output);
@@ -233,7 +245,15 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
         <h2 className="text-lg font-bold">Emotion Panel</h2>
         {isSessionActive ? (
           emotionOutput ? (
-            <EmotionOutput output={emotionOutput} />
+            emotionOutput.error ? (
+              <div className="p-4 bg-red-100 rounded-md">
+                <h2 className="text-xl font-bold">Error</h2>
+                <p>Invalid emotion data received.</p>
+                <pre>{emotionOutput.raw}</pre>
+              </div>
+            ) : (
+              <EmotionOutput output={emotionOutput} />
+            )
           ) : (
             <p>Speak to the assistant to express your emotions...</p>
           )
@@ -246,7 +266,6 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
 }
 
 // --- Session update payload for tool registration ---
-// The instructions are loaded from the instructionsText string defined above.
 const sessionUpdate = {
   type: "session.update",
   session: {
@@ -274,7 +293,7 @@ const sessionUpdate = {
             emotion_name: {
               type: "string",
               description:
-                "The name of the movement (e.g., accueillant, affirmatif, negatif, incertain, incomprehensif, resigne, reconnaissant, amical, enthousiaste, attentif, patient, serviable, celebrant, rieur, fier, enjoue, aimant, energie, frustre, impatient, furieux, mecontent, abattu, triste, confus, perdu, solitaire, etonne, surpris, curieux, degoute, timide).",
+                "The name of the movement, has to be one of the predefined movements (see instructions).",
             },
           },
           required: ["input_text", "thought_process", "emotion_name"],
