@@ -1,20 +1,39 @@
-# README for us
+# OpenAI Realtime Console (Fork for Reachy2 Emotions Project)
 
-The important code is in: `client/components/ToolPanel.jsx`
+This repository is a specialized fork of the [OpenAI Realtime Console](https://github.com/openai/openai-realtime-console). It includes the original console features along with custom modifications designed to interact specifically with the Reachy2 emotions project.
 
-To run:
+## Fork-Specific Modifications (Reachy2 Emotions)
+
+### How It Works
+
+- **Installation**: Follow the original installation instructions below.
+- **Running the application**:
+  - After installation, launch the console with `npm run dev`
+  - Go to the address that appears on the console with your web browser, e.g. `http://127.0.0.1:3000/`
+  - Click on **"Start session"**.
+  - Ensure the Reachy2 Emotions module is running in **server mode** so the robot reacts appropriately.
+  - Start talking into your microphone.
+  - The console sends emotion names detected from your speech via a Flask server.
+
+### Test your microphone setup
+After clicking on **"Start session"**, talk into your microphone and stop the session.
+A small audio player should appear in the bottom right of the screen allowing you to hear what was said.
+Use this to check if your microphone setup is working properly.
+
+### Customizing the Main Prompt
+
+- Modify the main prompt by editing the file located at:
+
 ```
-~/openai-realtime-console
-npm run dev
+client/components/ToolPanel.jsx
 ```
 
-And the Python bridge+log recorder:
-```
-~/openai-realtime-console
-python3 python_test.py
-```
+Any changes made to this file will affect the behavior and emotion detection logic.
 
-# OpenAI Realtime Console
+---
+
+
+# Original OpenAI Realtime Console
 
 This is an example application showing how to use the [OpenAI Realtime API](https://platform.openai.com/docs/guides/realtime) with [WebRTC](https://platform.openai.com/docs/guides/realtime-webrtc).
 
