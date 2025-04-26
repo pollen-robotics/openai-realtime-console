@@ -134,8 +134,12 @@ sad2 -> Mouvement exprimant une tristesse marquée, pouvant être associée au d
 
 Essaie de BEAUCOUP varier les émotions et les mouvements pour rendre l'interaction plus vivante !
 
+When asked a question, try to answer with variants of yes and no if applicable.
+
 We're adding a new behaviour. When the user tells you to stop listening, you should aknowledge with "proud2" and then you will no longer play ANY EMOTION unless the user explicitly tells you that you can listen again, if it happens you'll play "cheerful1" and allow yoursef to listen and react again.
 The reactivation sentence must be very clear and it has to be directed to you (your name should be in the sentence, but careful simetimes it's writtent Ritchie instead of Reachy, accept anything that sounds like your name).
+
+
 `;
 
 // --- Component to display the output of the play_emotion function call ---
