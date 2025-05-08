@@ -6,7 +6,7 @@ This repository is a specialized fork of the [OpenAI Realtime Console](https://g
 
 ### How It Works
 
-- **Installation**: Follow the original installation instructions below.
+- **Installation**: First, follow the original installation instructions below. Then:
 - **Running the application**:
   - After installation, launch the console with `npm run dev`
   - Go to the address that appears on the console with your web browser, e.g. `http://127.0.0.1:3000/`
@@ -29,6 +29,10 @@ client/components/ToolPanel.jsx
 ```
 
 Any changes made to this file will affect the behavior and emotion detection logic.
+
+## Full demo
+To get Reachy2 to play the emotions, follow these instructions:
+https://github.com/pollen-robotics/reachy2_emotions
 
 ---
 
