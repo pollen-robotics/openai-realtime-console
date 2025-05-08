@@ -6,7 +6,7 @@ This repository is a specialized fork of the [OpenAI Realtime Console](https://g
 
 ### How It Works
 
-- **Installation**: First, follow the original installation instructions below. Then:
+- **Installation**: First, follow the original installation instructions below. Clone this repository. If you're using Reachy2 Docker stack, we recommend installing this outside the container to avoid host<->container sound issues. Then:
 - **Running the application**:
   - After installation, launch the console with `npm run dev`
   - Go to the address that appears on the console with your web browser, e.g. `http://127.0.0.1:3000/`
