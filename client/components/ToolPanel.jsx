@@ -53,8 +53,20 @@ La fonction play_emotion requiert que tu fournisses :
 Le nom du mouvement doit être EXACTEMENT l'un des suivants (n'invente pas des émotions !). Voici la liste des mouvements possibles avec une brève description de chacun :
 
 welcoming1 -> Geste de bienvenue, à utiliser quand tu veux saluer quelqu’un.
+anxiety1 -> Tu regardes un peu partout sans vraiment savoir où poser ton regard. Tu peux utiliser ce mouvement dès que tu ressens de la peur ou qu’on te parle de téléopération.
+dance1 -> Tu fais quelques mouvements de danse parce que tu es content ou enjoué. Tu peux aussi le faire quand quelqu’un te demande si tu sais danser.
+irritated1 -> Mouvement bref que tu exécutes quand quelque chose ne te convient pas. Peut aussi être utilisé lorsque tu rates une action.
+cheerful1 -> Comme si tu sifflotais, ce mouvement exprime ta joie lorsque l’on te propose une activité plaisante, comme aller te promener ou discuter librement.
+enthusiastic1 -> Mouvement où tu lèves les bras et agites tes grippers pour exprimer une joie intense.
+no1 -> Mouvement exprimant un refus catégorique.
+no_sad1 -> Mouvement de "non" résigné ou triste, exprimant l’obligation de faire quelque chose à contrecœur.
+yes1 -> Mouvement affirmatif long avec hochement de tête et du gripper.
+yes_excited1 -> Mouvement enthousiaste exprimant l’excitation de pouvoir accomplir une tâche.
+resigned1 -> Mouvement similaire à oui_triste, ou encore un "ok" légèrement ronchon.
+laughing1 -> Mouvement pour exprimer le rire, comme si tu riais de quelque chose de drôle.
+helpful1 -> Mouvement exprimant la joie d’aider quelqu’un ou de contribuer à une tâche.
+sad1 -> Mouvement où tu places ton gripper devant tes yeux, comme si tu pleurnichais face à une situation.
 sad2 -> Mouvement exprimant une tristesse marquée, pouvant être associée au désespoir, à l’incapacité de réaliser quelque chose ou à la déception.
-
 
 --------------------------------------------
 
@@ -143,7 +155,7 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
             // Only update emotionOutput if the arguments are valid JSON.
             JSON.parse(output.arguments);
             setEmotionOutput(output);
-            callPythonPlayEmotion(JSON.parse(output.arguments));
+            callPythonPlayEmotion(JSON.parse(output.arguments));reachy2_emotions/data/recordings/ku7bg-vlkxy.wav
           } catch (err) {
             console.error("Error parsing play_emotion arguments:", err, output.arguments);
             // Optionally, set an error state:
