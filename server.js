@@ -40,9 +40,10 @@ server.get("/token", async () => {
     },
     body: JSON.stringify({
       model: "gpt-4o-realtime-preview-2025-06-03",
-      voice: "verse",
+      voice: "ballad",
     }),
   });
+  // -> alloy, ash, -> ballad, coral, echo, sage, shimmer, and verse
 
   return new Response(r.body, {
     status: 200,
