@@ -104,6 +104,7 @@ welcoming1 -> A welcoming gesture to greet someone.
 welcoming2 -> A friendly welcoming gesture, can mean “welcome” or “the pleasure is mine.”
 yes_sad1 -> A melancholic “yes”. Can also be used when someone repeats something you already knew, or a resigned agreement.
 yes1 -> A long affirmative response. You nod to confirm what your interlocutor said.
+do_nothing -> Special no-op. Use this when the input is likely background noise or a garbled transcription and responding would not make sense.
 
 -------------------
 
@@ -125,7 +126,11 @@ function EmotionOutput({ output }) {
   try {
     parsed = JSON.parse(output.arguments);
   } catch (error) {
-    console.error("Error parsing play_emotion arguments in EmotionOutput:", error, output.arguments);
+    console.error(
+      "Error parsing play_emotion arguments in EmotionOutput:",
+      error,
+      output.arguments
+    );
     return (
       <div className="p-4 bg-red-100 rounded-md">
         <h2 className="text-xl font-bold">Emotion Error</h2>
@@ -134,6 +139,12 @@ function EmotionOutput({ output }) {
     );
   }
   const { input_text, thought_process, emotion_name } = parsed;
+  const displayEmotion =
+    typeof emotion_name === "string" &&
+    emotion_name.trim().toLowerCase().replace(/\s+/g, "_") === "do_nothing"
+      ? "do nothing"
+      : emotion_name;
+
   return (
     <div className="p-4 bg-gray-100 rounded-md">
       <h2 className="text-xl font-bold">Emotion Detected</h2>
@@ -144,7 +155,7 @@ function EmotionOutput({ output }) {
         <strong>Thought Process:</strong> {thought_process}
       </p>
       <p>
-        <strong>Movement:</strong> {emotion_name}
+        <strong>Movement:</strong> {displayEmotion}
       </p>
     </div>
   );
@@ -191,12 +202,25 @@ export default function ToolPanel({ isSessionActive, sendClientEvent, events }) 
         if (output.type === "function_call" && output.name === "play_emotion") {
           console.log("Valid play_emotion output received:", output);
           try {
-            // Only update emotionOutput if the arguments are valid JSON.
-            JSON.parse(output.arguments);
+            const args = JSON.parse(output.arguments);
             setEmotionOutput(output);
-            callPythonPlayEmotion(JSON.parse(output.arguments));
+
+            const isDoNothing =
+              typeof args.emotion_name === "string" &&
+              args.emotion_name.trim().toLowerCase().replace(/\s+/g, "_") ===
+                "do_nothing";
+
+            if (isDoNothing) {
+              console.log("Skipping backend call for do_nothing.");
+            } else {
+              callPythonPlayEmotion(args);
+            }
           } catch (err) {
-            console.error("Error parsing play_emotion arguments:", err, output.arguments);
+            console.error(
+              "Error parsing play_emotion arguments:",
+              err,
+              output.arguments
+            );
             // Optionally, set an error state:
             setEmotionOutput({ error: true, raw: output.arguments });
           }
@@ -253,7 +277,7 @@ const sessionUpdate = {
         type: "function",
         name: "play_emotion",
         description:
-          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), and emotion_name (the name of the movement to perform in lowercase snake_case without accents).",
+          "Call this function when you want to express an emotion. Provide the following parameters: input_text (what you heard), thought_process (your internal thought process), and emotion_name (the name of the movement to perform in lowercase snake_case without accents). Use emotion_name=do_nothing for background noise or transcription errors.",
         parameters: {
           type: "object",
           strict: true,
